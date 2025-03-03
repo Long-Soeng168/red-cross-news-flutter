@@ -288,13 +288,13 @@ class _ProductsListPageState extends State<ProductsListPage> {
                       CustomScrollView(
                         controller: _scrollController,
                         slivers: [
-                          if (!isLoadingBrandModels && brandModels.isNotEmpty)
-                            SliverToBoxAdapter(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: brandModelsFilterOption(),
-                              ),
-                            ),
+                          // if (!isLoadingBrandModels && brandModels.isNotEmpty)
+                          //   SliverToBoxAdapter(
+                          //     child: Padding(
+                          //       padding: const EdgeInsets.all(8.0),
+                          //       child: brandModelsFilterOption(),
+                          //     ),
+                          //   ),
                           SliverPadding(
                             padding: EdgeInsets.all(8.0),
                             sliver: SliverGrid(
@@ -428,45 +428,45 @@ class _ProductsListPageState extends State<ProductsListPage> {
                     });
                   },
                 ),
-                SizedBox(height: 16),
-                MyFilterOption(
-                  title: 'Brands',
-                  selectedItem: selectedBrandId,
-                  options: brands.map((item) {
-                    return {
-                      'id': item.id,
-                      'title': item.name,
-                      'image': item.imageUrl,
-                    };
-                  }).toList(), // Don't forget to convert it to a List if necessary
+                // SizedBox(height: 16),
+                // MyFilterOption(
+                //   title: 'Brands',
+                //   selectedItem: selectedBrandId,
+                //   options: brands.map((item) {
+                //     return {
+                //       'id': item.id,
+                //       'title': item.name,
+                //       'image': item.imageUrl,
+                //     };
+                //   }).toList(), // Don't forget to convert it to a List if necessary
 
-                  handleSelect: (selected) {
-                    // print(selected);
-                    setState(() {
-                      selectedBrandId = selected;
-                      selectedBrandModelId = null;
-                    });
-                  },
-                ),
-                SizedBox(height: 16),
-                MyFilterOption(
-                  title: 'Body Types',
-                  selectedItem: selectedBodyTypeId,
-                  options: bodyTypes.map((item) {
-                    return {
-                      'id': item.id,
-                      'title': item.name,
-                      'image': item.imageUrl,
-                    };
-                  }).toList(), // Don't forget to convert it to a List if necessary
+                //   handleSelect: (selected) {
+                //     // print(selected);
+                //     setState(() {
+                //       selectedBrandId = selected;
+                //       selectedBrandModelId = null;
+                //     });
+                //   },
+                // ),
+                // SizedBox(height: 16),
+                // MyFilterOption(
+                //   title: 'Body Types',
+                //   selectedItem: selectedBodyTypeId,
+                //   options: bodyTypes.map((item) {
+                //     return {
+                //       'id': item.id,
+                //       'title': item.name,
+                //       'image': item.imageUrl,
+                //     };
+                //   }).toList(), // Don't forget to convert it to a List if necessary
 
-                  handleSelect: (selected) {
-                    // print(selected);
-                    setState(() {
-                      selectedBodyTypeId = selected;
-                    });
-                  },
-                ),
+                //   handleSelect: (selected) {
+                //     // print(selected);
+                //     setState(() {
+                //       selectedBodyTypeId = selected;
+                //     });
+                //   },
+                // ),
                 SizedBox(height: 28),
                 SizedBox(
                   width: double.infinity,

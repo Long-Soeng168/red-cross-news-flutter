@@ -171,7 +171,7 @@ class _ShopsPageState extends State<ShopsPage> {
       appBar: AppBar(
         foregroundColor: Theme.of(context).colorScheme.primary,
         title: Text(
-          'My App Name',
+          'CRC News',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

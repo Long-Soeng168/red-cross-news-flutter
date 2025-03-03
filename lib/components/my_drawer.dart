@@ -87,129 +87,143 @@ class MyDrawer extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.zero,
       ),
-      child: Column(
-        children: [
-          // Top Section: Logo and App Name
-          DrawerHeader(
-            margin: EdgeInsets.zero,
-            decoration:
-                BoxDecoration(color: Theme.of(context).colorScheme.primary),
-            child: Container(
-              width: double.infinity, // Ensure it spans the full width
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.network(
-                    'https://redcross.kampu.solutions/assets/images/categories/1740298471CKzhKsWak2.png',
-                    height: 80,
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'My App Name',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+      child: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            // Top Section: Logo and App Name
+            SizedBox(height: 20),
 
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 4),
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primary, // Set your desired color here
-                  width: 0.5, // Set the border width
-                ),
+            Theme(
+              data: Theme.of(context).copyWith(
+                dividerTheme: const DividerThemeData(color: Colors.transparent),
               ),
-            ),
-            child: ListTile(
-              leading: Image.network(
-                'https://redcross.kampu.solutions/assets/sponsor.png',
-                width: 45,
-                height: 45,
-              ),
-              title: Align(
-                alignment: Alignment
-                    .centerLeft, // Ensures text stays aligned with the leading
-                child: Text('Sponsored'),
-              ),
-              onTap: () {
-                // Handle category tap
-              },
-            ),
-          ),
-
-          // Middle Section: Category List
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.symmetric(
-                  vertical: 12, horizontal: 0), // Remove default padding
-              children: categories
-                  .map(
-                    (category) => ListTile(
-                      leading: Image.network(category["image"],
-                          width: 45, height: 45),
-                      title: Text(category["title"]),
-                      onTap: () {
-                        // Handle category tap
-                      },
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-
-          // Bottom Section: Social Links (Row with Wrapping)
-          Container(
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primary, // Set your desired color here
-                  width: 0.5, // Set the border width
-                ),
-              ),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: GridView.builder(
-              padding: EdgeInsets.zero, // Remove default padding
-              shrinkWrap:
-                  true, // Prevents grid from taking up all vertical space
-              physics:
-                  NeverScrollableScrollPhysics(), // Disable scrolling inside GridView
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, // 4 columns
-                crossAxisSpacing: 8, // Horizontal spacing between items
-                mainAxisSpacing: 8, // Vertical spacing between items
-              ),
-              itemCount: socialLinks.length, // Number of items in the grid
-              itemBuilder: (context, index) {
-                final social = socialLinks[index];
-                return GestureDetector(
-                  onTap: () {
-                    // Handle social link tap
-                  },
+              child: DrawerHeader(
+                decoration: BoxDecoration(color: Colors.white),
+                child: Container(
+                  width: double.infinity, // Ensure it spans the full width
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network(social["image"], width: 45, height: 45),
-                      SizedBox(height: 4),
-                      Text(social["title"], style: TextStyle(fontSize: 12)),
+                      Image.network(
+                        'https://www.elearning-crc.org.kh/images/logo-wide.png',
+                        height: 80,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'CRC News',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
                     ],
                   ),
-                );
-              },
+                ),
+              ),
             ),
-          ),
-        ],
+
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary, // Set your desired color here
+                    width: 0.5, // Set the border width
+                  ),
+                  bottom: BorderSide(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary, // Set your desired color here
+                    width: 0.5, // Set the border width
+                  ),
+                ),
+              ),
+              child: ListTile(
+                leading: Image.network(
+                  'https://redcross.kampu.solutions/assets/sponsor.png',
+                  width: 45,
+                  height: 45,
+                ),
+                title: Align(
+                  alignment: Alignment
+                      .centerLeft, // Ensures text stays aligned with the leading
+                  child: Text('Sponsor'),
+                ),
+                onTap: () {
+                  // Handle category tap
+                },
+              ),
+            ),
+
+            // Middle Section: Category List
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.symmetric(
+                    vertical: 12, horizontal: 0), // Remove default padding
+                children: categories
+                    .map(
+                      (category) => ListTile(
+                        leading: Image.network(category["image"],
+                            width: 45, height: 45),
+                        title: Text(category["title"]),
+                        onTap: () {
+                          // Handle category tap
+                        },
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+
+            // Bottom Section: Social Links (Row with Wrapping)
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary, // Set your desired color here
+                    width: 0.5, // Set the border width
+                  ),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: GridView.builder(
+                padding: EdgeInsets.zero, // Remove default padding
+                shrinkWrap:
+                    true, // Prevents grid from taking up all vertical space
+                physics:
+                    NeverScrollableScrollPhysics(), // Disable scrolling inside GridView
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4, // 4 columns
+                  crossAxisSpacing: 8, // Horizontal spacing between items
+                  mainAxisSpacing: 8, // Vertical spacing between items
+                ),
+                itemCount: socialLinks.length, // Number of items in the grid
+                itemBuilder: (context, index) {
+                  final social = socialLinks[index];
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle social link tap
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.network(social["image"], width: 45, height: 45),
+                        SizedBox(height: 4),
+                        Text(social["title"], style: TextStyle(fontSize: 12)),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
