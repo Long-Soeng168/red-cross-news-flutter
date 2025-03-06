@@ -58,6 +58,14 @@ dependencies:
   flutter_html: ^3.0.0-beta.2
   flutter_layout_grid: ^2.0.7
   text_scroll: ^0.2.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "lib/assets/icons/logo_bg_white.png"
+  adaptive_icon_background: "#ffffff" # For Android adaptive icons
+  adaptive_icon_foreground: "lib/assets/icons/logo_bg_white.png"
 
 dev_dependencies:
   flutter_test:

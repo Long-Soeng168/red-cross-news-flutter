@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="red_cross_news_app"
+        android:label="CRC News"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
