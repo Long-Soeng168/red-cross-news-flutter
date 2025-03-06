@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-class SponsorPage extends StatelessWidget {
-  const SponsorPage({super.key});
+class DonatePage extends StatelessWidget {
+  const DonatePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,17 @@ class SponsorPage extends StatelessWidget {
     """;
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Sponsor'),
-      // ),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Colors.white,
+        title: Text(
+          'Donate',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),

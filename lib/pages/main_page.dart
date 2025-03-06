@@ -1,5 +1,5 @@
+import 'package:red_cross_news_app/pages/donate/donate_page.dart';
 import 'package:red_cross_news_app/pages/dtc/dtc_page.dart';
-import 'package:red_cross_news_app/pages/sponsor/sponsor_page.dart';
 import 'package:red_cross_news_app/pages/trainings/trainings_page.dart';
 import 'package:red_cross_news_app/pages/garages/garages_page.dart';
 import 'package:red_cross_news_app/pages/home/home_page.dart';
@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     const ShopsPage(),
-    const SponsorPage(),
+    const DonatePage(),
     // const HomePage(),
     // const GaragesPage(),
     // const DtcPage(),
@@ -59,16 +59,16 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
-            label: "Sponsor",
+            label: "Donate",
             icon: _selectedIndex == 1
                 ? Image.asset(
-                    'lib/assets/icons/sponsor.png',
+                    'lib/assets/icons/donate.png',
                     width: 30,
                     height: 30,
                     fit: BoxFit.contain,
                   )
                 : Image.asset(
-                    'lib/assets/icons/sponsor_outline.png',
+                    'lib/assets/icons/donate_outline.png',
                     width: 30,
                     height: 30,
                     fit: BoxFit.contain,
@@ -76,7 +76,7 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: Colors.white,
           ),
           // BottomNavigationBarItem(
-          //   label: "Sponsor",
+          //   label: "Shop",
           //   icon: _selectedIndex == 1
           //       ? Image.asset(
           //           'lib/assets/icons/shop.png',

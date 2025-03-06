@@ -106,7 +106,7 @@ class ProductService {
 
     List<dynamic> imagesObjects = data['images'];
     List<String> imagesUrls = imagesObjects.map((item) {
-      return '${Env.baseImageUrl}products/thumb/${item['image']}';
+      return '${Env.baseImageUrl}news/thumb/${item['image']}';
     }).toList();
 
     String formatCreatedAt = '';

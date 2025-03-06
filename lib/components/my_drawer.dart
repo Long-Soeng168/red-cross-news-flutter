@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:red_cross_news_app/pages/settings/settings_page.dart';
 
 class MyDrawer extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
@@ -92,22 +93,25 @@ class MyDrawer extends StatelessWidget {
         child: Column(
           children: [
             // Top Section: Logo and App Name
-            SizedBox(height: 20),
+            // SizedBox(height: 20),
 
             Theme(
               data: Theme.of(context).copyWith(
                 dividerTheme: const DividerThemeData(color: Colors.transparent),
               ),
               child: DrawerHeader(
-                decoration: BoxDecoration(color: Colors.white),
+                decoration:
+                    BoxDecoration(color: Theme.of(context).colorScheme.primary),
                 child: Container(
                   width: double.infinity, // Ensure it spans the full width
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network(
-                        'https://www.elearning-crc.org.kh/images/logo-wide.png',
+                      Image.asset(
+                        'lib/assets/icons/logo.png',
+                        width: 80,
                         height: 80,
+                        fit: BoxFit.contain,
                       ),
                       SizedBox(height: 10),
                       Text(
@@ -115,7 +119,7 @@ class MyDrawer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -124,16 +128,47 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
 
+            // Container(
+            //   padding: EdgeInsets.symmetric(vertical: 4),
+            //   decoration: BoxDecoration(
+            //     border: Border(
+            //       top: BorderSide(
+            //         color: Theme.of(context)
+            //             .colorScheme
+            //             .primary, // Set your desired color here
+            //         width: 0.5, // Set the border width
+            //       ),
+            //       bottom: BorderSide(
+            //         color: Theme.of(context)
+            //             .colorScheme
+            //             .primary, // Set your desired color here
+            //         width: 0.5, // Set the border width
+            //       ),
+            //     ),
+            //   ),
+            //   child: ListTile(
+            //     leading: Image.network(
+            //       'https://redcross.kampu.solutions/assets/sponsor.png',
+            //       width: 45,
+            //       height: 45,
+            //     ),
+            //     title: Align(
+            //       alignment: Alignment
+            //           .centerLeft, // Ensures text stays aligned with the leading
+            //       child: Text('Donate'),
+            //     ),
+            //     onTap: () {
+            //       final route = MaterialPageRoute(
+            //         builder: (context) => DonatePage(),
+            //       );
+            //       Navigator.push(context, route);
+            //     },
+            //   ),
+            // ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 4),
+              padding: EdgeInsets.only(bottom: 4),
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .primary, // Set your desired color here
-                    width: 0.5, // Set the border width
-                  ),
                   bottom: BorderSide(
                     color: Theme.of(context)
                         .colorScheme
@@ -143,18 +178,23 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
               child: ListTile(
-                leading: Image.network(
-                  'https://redcross.kampu.solutions/assets/sponsor.png',
+                leading: SizedBox(
                   width: 45,
-                  height: 45,
+                  child: Icon(
+                    Icons.settings,
+                    size: 40,
+                  ),
                 ),
                 title: Align(
                   alignment: Alignment
                       .centerLeft, // Ensures text stays aligned with the leading
-                  child: Text('Sponsor'),
+                  child: Text('Settings & Contact'),
                 ),
                 onTap: () {
-                  // Handle category tap
+                  final route = MaterialPageRoute(
+                    builder: (context) => SettingsPage(),
+                  );
+                  Navigator.push(context, route);
                 },
               ),
             ),
@@ -162,17 +202,15 @@ class MyDrawer extends StatelessWidget {
             // Middle Section: Category List
             Expanded(
               child: ListView(
-                padding: EdgeInsets.symmetric(
-                    vertical: 12, horizontal: 0), // Remove default padding
+                padding: EdgeInsets.only(
+                    bottom: 20, top: 10), // Remove default padding
                 children: categories
                     .map(
                       (category) => ListTile(
                         leading: Image.network(category["image"],
                             width: 45, height: 45),
                         title: Text(category["title"]),
-                        onTap: () {
-                          // Handle category tap
-                        },
+                        onTap: () {},
                       ),
                     )
                     .toList(),

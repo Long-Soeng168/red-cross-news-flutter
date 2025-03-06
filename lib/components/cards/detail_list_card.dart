@@ -28,7 +28,7 @@ class DetailListCard extends StatelessWidget {
                   ),
                 ),
               ),
-              width: 100,
+              width: 1,
               child: Text(
                 keyword,
                 style: const TextStyle(

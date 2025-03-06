@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:red_cross_news_app/components/buttons/my_elevated_button.dart';
 import 'package:red_cross_news_app/components/my_filter_option.dart';
 import 'package:red_cross_news_app/components/my_search.dart';
@@ -296,36 +297,72 @@ class _ProductsListPageState extends State<ProductsListPage> {
                           //     ),
                           //   ),
                           SliverPadding(
-                            padding: EdgeInsets.all(8.0),
-                            sliver: SliverGrid(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2, // Number of columns
-                                childAspectRatio: 1 / 1,
-                              ),
-                              delegate: SliverChildBuilderDelegate(
-                                childCount: products.length,
-                                (context, index) {
-                                  final product = products[index];
-                                  return ProductCard(
-                                      // width: 200,
+                            padding: EdgeInsets.zero,
+                            sliver: SliverToBoxAdapter(
+                              child: LayoutGrid(
+                                columnSizes: [
+                                  1.fr
+                                ], // Single column, full width
+                                rowSizes: List.generate(
+                                    products.length,
+                                    (_) =>
+                                        IntrinsicContentTrackSize()), // Dynamic row height
+                                rowGap: 20, // Add spacing between rows
+                                children: [
+                                  for (var product in products)
+                                    ProductCard(
+                                      isShowLink: true,
+                                      width: double.infinity, // Take full width
                                       id: product.id,
                                       title: product.name,
                                       price: product.price,
                                       imageUrl: product.imageUrl,
                                       onTap: () {
-                                        final route = MaterialPageRoute(
-                                          builder: (context) =>
-                                              ProductDetailPage(
-                                            product: product,
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ProductDetailPage(
+                                                    product: product),
                                           ),
                                         );
-                                        Navigator.push(context, route);
-                                      });
-                                },
+                                      },
+                                    )
+                                ],
                               ),
                             ),
                           ),
+                          // SliverPadding(
+                          //   padding: EdgeInsets.all(8.0),
+                          //   sliver: SliverGrid(
+                          //     gridDelegate:
+                          //         SliverGridDelegateWithFixedCrossAxisCount(
+                          //       crossAxisCount: 2, // Number of columns
+                          //       childAspectRatio: 1 / 1,
+                          //     ),
+                          //     delegate: SliverChildBuilderDelegate(
+                          //       childCount: products.length,
+                          //       (context, index) {
+                          //         final product = products[index];
+                          //         return ProductCard(
+                          //             // width: 200,
+                          //             id: product.id,
+                          //             title: product.name,
+                          //             price: product.price,
+                          //             imageUrl: product.imageUrl,
+                          //             onTap: () {
+                          //               final route = MaterialPageRoute(
+                          //                 builder: (context) =>
+                          //                     ProductDetailPage(
+                          //                   product: product,
+                          //                 ),
+                          //               );
+                          //               Navigator.push(context, route);
+                          //             });
+                          //       },
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                       if (isLoadingMore)

@@ -8,12 +8,14 @@ import 'package:red_cross_news_app/components/my_gallery.dart';
 import 'package:red_cross_news_app/components/my_list_header.dart';
 import 'package:red_cross_news_app/models/product.dart';
 import 'package:red_cross_news_app/models/shop.dart';
+import 'package:red_cross_news_app/pages/popup/my_popup_image.dart';
 import 'package:red_cross_news_app/pages/shops/products_list_page.dart';
 import 'package:red_cross_news_app/pages/shops/shop_detail_page.dart';
 import 'package:red_cross_news_app/services/product_service.dart';
 import 'package:red_cross_news_app/services/shop_service.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key, required this.product});
@@ -39,6 +41,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     super.initState();
     imageUrls.add(widget.product.imageUrl);
 
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      MyPopupImage.show(
+        context,
+        'https://redcross.kampu.solutions/assets/images/slides/thumb/popup1.jpeg', // Replace with your image URL
+      );
+    });
+
     getResource();
   }
 
@@ -56,7 +65,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     try {
       // Fetch relatedProducts outside of setState
       final fetchedRelatedProduct =
-          await ProductService.fetchRelatedProducts(id: widget.product.id);
+          // await ProductService.fetchRelatedProducts(id: widget.product.id);
+          await ProductService.fetchProducts();
       // Update the state
       setState(() {
         relatedProducts = fetchedRelatedProduct;
@@ -117,24 +127,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Theme.of(context).colorScheme.primary,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Colors.white,
         title: Text(
-          'News Detail',
+          'CRC News',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.search,
-              size: 32,
-            ),
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -153,6 +154,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        padding: EdgeInsets.all(4),
                         child: Text(
                           widget.product.name,
                           style: TextStyle(
@@ -170,43 +172,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               children: [
                                   const SizedBox(height: 8.0),
                                   Visibility(
-                                    visible:
-                                        productDetail.categoryName.isNotEmpty,
-                                    child: DetailListCard(
-                                      keyword: 'Category',
-                                      value: productDetail.categoryName,
-                                    ),
-                                  ),
-                                  Visibility(
-                                    visible:
-                                        productDetail.bodyTypeName.isNotEmpty,
-                                    child: DetailListCard(
-                                      keyword: 'Body Type',
-                                      value: productDetail.bodyTypeName,
-                                    ),
-                                  ),
-                                  Visibility(
-                                    visible: productDetail.brandName.isNotEmpty,
-                                    child: DetailListCard(
-                                      keyword: 'Brand',
-                                      value: productDetail.brandName,
-                                    ),
-                                  ),
-                                  Visibility(
                                     visible: productDetail.createdAt.isNotEmpty,
                                     child: DetailListCard(
-                                      keyword: 'Post Date',
+                                      keyword: '',
                                       value: productDetail.createdAt,
                                     ),
                                   ),
-                                  ListTile(
-                                    contentPadding: EdgeInsets.all(2),
-                                    title: Text(
-                                      'Description',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    subtitle: Text(productDetail.description),
+                                  Html(
+                                    data: productDetail.description,
                                   ),
                                 ])
                     ],
@@ -236,7 +209,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   Column(
                     children: [
                       MyListHeader(
-                        title: 'Related Products',
+                        isShowSeeMore: false,
+                        title: 'Related News',
                         onTap: () {
                           final route = MaterialPageRoute(
                               builder: (context) => ProductsListPage());
@@ -252,6 +226,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           itemBuilder: (context, index) {
                             final product = relatedProducts[index];
                             return ProductCard(
+                                width: 265,
                                 imageUrl: product.imageUrl,
                                 title: product.name,
                                 price: product.price,
@@ -270,7 +245,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ],
                   ),
 
-                SizedBox(height: 80),
+                SizedBox(height: 20),
               ],
             ),
           ),

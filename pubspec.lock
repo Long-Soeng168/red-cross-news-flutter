@@ -395,6 +395,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.0"
+  flutter_layout_grid:
+    dependency: "direct main"
+    description:
+      name: flutter_layout_grid
+      sha256: "88b4f8484a0874962e27c47733ad256aeb26acc694a9f029edbef771d301885a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.7"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -845,6 +853,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      sha256: ea0b925899e64ecdfbf9c7becb60d5b50e706ade44a85b2363be2a22d88117d2
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.2"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -986,6 +1002,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.2"
+  text_scroll:
+    dependency: "direct main"
+    description:
+      name: text_scroll
+      sha256: "7869d86a6fdd725dee56bdd150216a99f0372b82fbfcac319214dbd5f36e1908"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   typed_data:
     dependency: transitive
     description:

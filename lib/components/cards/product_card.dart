@@ -5,21 +5,25 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
     this.id = 0,
+    this.limitLine = 3,
     this.title = '',
     this.price = '',
     this.imageUrl = '',
     this.onTap,
     this.aspectRatio = 16 / 9,
     this.width = 200,
+    this.isShowLink = false,
   });
 
   final int id;
+  final int limitLine;
   final String title;
   final String price;
   final String imageUrl;
   final void Function()? onTap;
   final double aspectRatio;
   final double width;
+  final bool isShowLink;
 
   @override
   Widget build(BuildContext context) {
@@ -88,21 +92,63 @@ class ProductCard extends StatelessWidget {
                         children: [
                           Text(
                             title,
-                            maxLines: 3,
+                            maxLines: limitLine,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontSize: 14, // Set font size to 12
+                              fontSize: 18, // Set font size to 12
                             ),
                           ),
-
-                          // Text(
-                          //   'Long Soeng',
-                          //   maxLines: 2,
-                          //   overflow: TextOverflow.ellipsis,
-                          //   style: TextStyle(color: Colors.grey.shade400),
-                          // ),
                         ],
                       ),
+                      SizedBox(height: 4),
+                      if (isShowLink)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceBetween, // Space between children
+                          children: [
+                            // Left side: Image and Text for 'Facebook'
+                            Row(
+                              children: [
+                                Image.network(
+                                  'https://redcross.kampu.solutions/assets/images/links/facebook.png',
+                                  width: 35,
+                                  height: 35,
+                                ),
+                                const SizedBox(
+                                    width:
+                                        8), // Add space between the image and text
+                                const Text(
+                                  'Facebook',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors
+                                        .blue, // Optional: blue text color to match the Facebook logo
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            // Right side: 'Read More' text
+                            GestureDetector(
+                              onTap: () {
+                                // Action when 'Read More' is tapped
+                              },
+                              child: Container(
+                                padding: EdgeInsets.only(left: 2, right: 4),
+                                child: const Text(
+                                  'Read More >',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors
+                                        .blueAccent, // Optional: blue accent color
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                     ],
                   ),
                 ),
