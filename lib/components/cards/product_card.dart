@@ -1,5 +1,6 @@
 import 'package:red_cross_news_app/components/error_image.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -95,7 +96,8 @@ class ProductCard extends StatelessWidget {
                             maxLines: limitLine,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontSize: 18, // Set font size to 12
+                              fontSize: 16, // Set font size to 12
+                              height: 1.75,
                             ),
                           ),
                         ],
@@ -107,43 +109,55 @@ class ProductCard extends StatelessWidget {
                               .spaceBetween, // Space between children
                           children: [
                             // Left side: Image and Text for 'Facebook'
-                            Row(
-                              children: [
-                                Image.network(
-                                  'https://redcross.kampu.solutions/assets/images/links/facebook.png',
-                                  width: 35,
-                                  height: 35,
-                                ),
-                                const SizedBox(
-                                    width:
-                                        8), // Add space between the image and text
-                                const Text(
-                                  'Facebook',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors
-                                        .blue, // Optional: blue text color to match the Facebook logo
+                            GestureDetector(
+                              onTap: () async {
+                                final Uri url = Uri.parse(
+                                    'https://www.facebook.com/crcnhq');
+                                if (await canLaunchUrl(url)) {
+                                  await launchUrl(url,
+                                      mode: LaunchMode.externalApplication);
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
+                              child: Row(
+                                children: [
+                                  Image.network(
+                                    'https://redcross.kampu.solutions/assets/images/links/facebook.png',
+                                    width: 35,
+                                    height: 35,
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(
+                                      width:
+                                          8), // Add space between the image and text
+                                  const Text(
+                                    'Facebook',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            Text(
+                              '06-Mar-2025',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
                             ),
 
                             // Right side: 'Read More' text
-                            GestureDetector(
-                              onTap: () {
-                                // Action when 'Read More' is tapped
-                              },
-                              child: Container(
-                                padding: EdgeInsets.only(left: 2, right: 4),
-                                child: const Text(
-                                  'Read More >',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors
-                                        .blueAccent, // Optional: blue accent color
-                                  ),
+                            Container(
+                              padding: EdgeInsets.only(left: 2, right: 4),
+                              child: const Text(
+                                'Read More >',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors
+                                      .blueAccent, // Optional: blue accent color
                                 ),
                               ),
                             ),

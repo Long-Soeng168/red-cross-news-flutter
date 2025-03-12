@@ -1,8 +1,4 @@
 import 'package:red_cross_news_app/pages/donate/donate_page.dart';
-import 'package:red_cross_news_app/pages/dtc/dtc_page.dart';
-import 'package:red_cross_news_app/pages/trainings/trainings_page.dart';
-import 'package:red_cross_news_app/pages/garages/garages_page.dart';
-import 'package:red_cross_news_app/pages/home/home_page.dart';
 import 'package:red_cross_news_app/pages/shops/shops_page.dart';
 import 'package:flutter/material.dart';
 
@@ -39,37 +35,56 @@ class _MainPageState extends State<MainPage> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         items: [
           BottomNavigationBarItem(
             label: "Home",
             icon: _selectedIndex == 0
-                ? Image.asset(
-                    'lib/assets/icons/home.png',
-                    width: 30,
-                    height: 30,
-                    fit: BoxFit.contain,
-                  )
-                : Image.asset(
-                    'lib/assets/icons/home_outline.png',
-                    width: 30,
-                    height: 30,
-                    fit: BoxFit.contain,
-                  ),
+                ? Icon(Icons.home,
+                    size: 30, color: Colors.white) // Selected state
+                : Icon(Icons.home_outlined,
+                    size: 30, color: Colors.white), // Unselected state
             backgroundColor: Colors.white,
           ),
+          // BottomNavigationBarItem(
+          //   label: "Donate",
+          //   icon: _selectedIndex == 1
+          //       ? Icon(Icons.volunteer_activism,
+          //           size: 30, color: Colors.white) // Selected state
+          //       : Icon(Icons.volunteer_activism_outlined,
+          //           size: 30, color: Colors.white), // Unselected state
+          //   backgroundColor: Colors.white,
+          // ),
+
+          // BottomNavigationBarItem(
+          //   label: "Home",
+          //   icon: _selectedIndex == 0
+          //       ? Image.asset(
+          //           'lib/assets/icons/home.png',
+          //           width: 30,
+          //           height: 30,
+          //           fit: BoxFit.contain,
+          //         )
+          //       : Image.asset(
+          //           'lib/assets/icons/home_outline.png',
+          //           width: 30,
+          //           height: 30,
+          //           fit: BoxFit.contain,
+          //         ),
+          //   backgroundColor: Colors.white,
+          // ),
           BottomNavigationBarItem(
             label: "Donate",
             icon: _selectedIndex == 1
                 ? Image.asset(
-                    'lib/assets/icons/donate.png',
-                    width: 30,
+                    'lib/assets/icons/donate_icon.png',
+                    width: 65,
                     height: 30,
                     fit: BoxFit.contain,
                   )
                 : Image.asset(
-                    'lib/assets/icons/donate_outline.png',
-                    width: 30,
+                    'lib/assets/icons/donate_icon.png',
+                    width: 65,
                     height: 30,
                     fit: BoxFit.contain,
                   ),
@@ -145,8 +160,8 @@ class _MainPageState extends State<MainPage> {
           // ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Colors.grey.shade400,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey.shade200,
         onTap: _onItemTapped,
       ),
     );

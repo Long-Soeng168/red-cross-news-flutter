@@ -165,56 +165,57 @@ class MyDrawer extends StatelessWidget {
             //     },
             //   ),
             // ),
-            Container(
-              padding: EdgeInsets.only(bottom: 4),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .primary, // Set your desired color here
-                    width: 0.5, // Set the border width
-                  ),
-                ),
-              ),
-              child: ListTile(
-                leading: SizedBox(
-                  width: 45,
-                  child: Icon(
-                    Icons.settings,
-                    size: 40,
-                  ),
-                ),
-                title: Align(
-                  alignment: Alignment
-                      .centerLeft, // Ensures text stays aligned with the leading
-                  child: Text('Settings & Contact'),
-                ),
-                onTap: () {
-                  final route = MaterialPageRoute(
-                    builder: (context) => SettingsPage(),
-                  );
-                  Navigator.push(context, route);
-                },
-              ),
-            ),
 
             // Middle Section: Category List
             Expanded(
               child: ListView(
-                padding: EdgeInsets.only(
-                    bottom: 20, top: 10), // Remove default padding
-                children: categories
-                    .map(
-                      (category) => ListTile(
-                        leading: Image.network(category["image"],
-                            width: 45, height: 45),
-                        title: Text(category["title"]),
-                        onTap: () {},
+                  padding: EdgeInsets.only(
+                      bottom: 0, top: 10), // Remove default padding
+                  children: [
+                    ...categories
+                        .map(
+                          (category) => ListTile(
+                            leading: Image.network(category["image"],
+                                width: 45, height: 45),
+                            title: Text(category["title"]),
+                            onTap: () {},
+                          ),
+                        )
+                        .toList(),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 4),
+                      // decoration: BoxDecoration(
+                      //   border: Border(
+                      //     top: BorderSide(
+                      //       color: Theme.of(context)
+                      //           .colorScheme
+                      //           .primary, // Set your desired color here
+                      //       width: 0.5, // Set the border width
+                      //     ),
+                      //   ),
+                      // ),
+                      child: ListTile(
+                        leading: SizedBox(
+                          width: 45,
+                          child: Icon(
+                            Icons.settings,
+                            size: 40,
+                          ),
+                        ),
+                        title: Align(
+                          alignment: Alignment
+                              .centerLeft, // Ensures text stays aligned with the leading
+                          child: Text('Settings & Contact'),
+                        ),
+                        onTap: () {
+                          final route = MaterialPageRoute(
+                            builder: (context) => SettingsPage(),
+                          );
+                          Navigator.push(context, route);
+                        },
                       ),
-                    )
-                    .toList(),
-              ),
+                    ),
+                  ]),
             ),
 
             // Bottom Section: Social Links (Row with Wrapping)

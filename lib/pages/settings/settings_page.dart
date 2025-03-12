@@ -29,7 +29,7 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           const SizedBox(height: 10),
           _buildDropdownTile(),
-          _buildFontSizeSlider(),
+          // _buildFontSizeSlider(),
           // const Divider(),
           _buildAboutUsTile(),
           _buildAppVersionTile(),
