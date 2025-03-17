@@ -6,7 +6,7 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
     this.id = 0,
-    this.limitLine = 3,
+    this.limitLine = 4,
     this.title = '',
     this.price = '',
     this.imageUrl = '',
@@ -124,8 +124,8 @@ class ProductCard extends StatelessWidget {
                                 children: [
                                   Image.network(
                                     'https://redcross.kampu.solutions/assets/images/links/facebook.png',
-                                    width: 35,
-                                    height: 35,
+                                    width: 30,
+                                    height: 30,
                                   ),
                                   const SizedBox(
                                       width:
@@ -144,7 +144,7 @@ class ProductCard extends StatelessWidget {
                             Text(
                               '06-Mar-2025',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                               ),
                             ),
 
@@ -154,7 +154,7 @@ class ProductCard extends StatelessWidget {
                               child: const Text(
                                 'Read More >',
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors
                                       .blueAccent, // Optional: blue accent color

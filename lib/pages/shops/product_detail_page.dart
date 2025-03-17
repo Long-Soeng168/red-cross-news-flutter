@@ -158,7 +158,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         child: Text(
                           widget.product.name,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             // fontWeight: FontWeight.bold,
                           ),
                         ),

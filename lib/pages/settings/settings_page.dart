@@ -31,7 +31,9 @@ class _SettingsPageState extends State<SettingsPage> {
           _buildDropdownTile(),
           // _buildFontSizeSlider(),
           // const Divider(),
+          _buildAboutTile(),
           _buildAboutUsTile(),
+          _buildCopyrightTile(),
           _buildAppVersionTile(),
         ],
       ),
@@ -127,6 +129,20 @@ class _SettingsPageState extends State<SettingsPage> {
       leading: Icon(Icons.verified),
       title: Text('App Version'),
       trailing: Text('1.0.0'),
+    );
+  }
+
+  Widget _buildCopyrightTile() {
+    return const ListTile(
+      leading: Icon(Icons.copyright),
+      title: Text('Copyright 2024'),
+    );
+  }
+
+  Widget _buildAboutTile() {
+    return const ListTile(
+      leading: Icon(Icons.info),
+      title: Text('About'),
     );
   }
 }

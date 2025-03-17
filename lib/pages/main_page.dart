@@ -46,6 +46,24 @@ class _MainPageState extends State<MainPage> {
                     size: 30, color: Colors.white), // Unselected state
             backgroundColor: Colors.white,
           ),
+
+          BottomNavigationBarItem(
+            label: "Donate",
+            icon: _selectedIndex == 1
+                ? Image.asset(
+                    'lib/assets/icons/icon_donate_gift.png',
+                    width: 65,
+                    height: 30,
+                    fit: BoxFit.contain,
+                  )
+                : Image.asset(
+                    'lib/assets/icons/icon_donate_gift.png',
+                    width: 65,
+                    height: 30,
+                    fit: BoxFit.contain,
+                  ),
+            backgroundColor: Colors.white,
+          ),
           // BottomNavigationBarItem(
           //   label: "Donate",
           //   icon: _selectedIndex == 1
@@ -73,23 +91,6 @@ class _MainPageState extends State<MainPage> {
           //         ),
           //   backgroundColor: Colors.white,
           // ),
-          BottomNavigationBarItem(
-            label: "Donate",
-            icon: _selectedIndex == 1
-                ? Image.asset(
-                    'lib/assets/icons/donate_icon.png',
-                    width: 65,
-                    height: 30,
-                    fit: BoxFit.contain,
-                  )
-                : Image.asset(
-                    'lib/assets/icons/donate_icon.png',
-                    width: 65,
-                    height: 30,
-                    fit: BoxFit.contain,
-                  ),
-            backgroundColor: Colors.white,
-          ),
           // BottomNavigationBarItem(
           //   label: "Shop",
           //   icon: _selectedIndex == 1
@@ -159,6 +160,11 @@ class _MainPageState extends State<MainPage> {
           //   backgroundColor: Colors.white,
           // ),
         ],
+        selectedLabelStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ), // Set static font size
+        unselectedLabelStyle: const TextStyle(fontSize: 16),
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey.shade200,
