@@ -11,28 +11,36 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+  Key _homeKey = UniqueKey();
 
   void _onItemTapped(int index) {
     setState(() {
+      if (index == 0 && _selectedIndex == 0) {
+        // Refresh Home by assigning a new key
+        _homeKey = UniqueKey();
+      }
       _selectedIndex = index;
     });
   }
 
-  final List<Widget> _pages = [
-    const ShopsPage(),
-    const DonatePage(),
-    // const HomePage(),
-    // const GaragesPage(),
-    // const DtcPage(),
-    // const TrainingPage(),
-  ];
+  // final List<Widget> _pages = [
+  //   const ShopsPage(),
+  //   const DonatePage(),
+  //   // const HomePage(),
+  //   // const GaragesPage(),
+  //   // const DtcPage(),
+  //   // const TrainingPage(),
+  // ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
-        children: _pages,
+        children: [
+          ShopsPage(key: _homeKey),
+          DonatePage(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
