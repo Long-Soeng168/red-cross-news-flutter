@@ -385,7 +385,7 @@ class _ShopsPageState extends State<ShopsPage> {
                                   height: 12,
                                 ),
                                 MyListHeader(
-                                  title: 'Latest Post',
+                                  title: 'Latest News',
                                   isShowSeeMore: false,
                                 ),
                               ],

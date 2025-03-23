@@ -4,81 +4,81 @@ import 'package:red_cross_news_app/pages/settings/settings_page.dart';
 class MyDrawer extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
     {
-      "title": "World News",
+      "title": "ព័ត៌មានថ្មីៗ",
       "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740297417WkRwepN4DS.png"
+          "https://redcross.kampu.solutions/assets/images/categories/1742573209KGfiDSdphl.jpeg"
+    }, 
+    {
+      "title": "ការងារឥស្សរជនឆ្នើមថ្នាក់ជាតិ",
+      "image":
+          "https://redcross.kampu.solutions/assets/images/categories/17425733491q2IHftmgM.jpeg"
     },
     {
-      "title": "National News",
+      "title": "យុវជន កក្រក",
       "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740297406UPGvdsiBLz.png"
+          "https://redcross.kampu.solutions/assets/images/categories/1742573428u66tabJmVe.jpeg"
     },
-    {
-      "title": "Business & Finance",
+      {
+      "title": "Website",
       "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740297453h40G1Rggeg.png"
+          "https://redcross.kampu.solutions/assets/images/categories/1742575296QuHaF5ArdD.jpeg"
     },
-    {
-      "title": "Technology",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/17402975869XWEMgI5Xt.png"
-    },
-    {
-      "title": "Sports",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740297855CzrvQ4WL7m.png"
-    },
-    {
-      "title": "Entertainment & Lifestyle",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740297846mtf4p5qh5f.png"
-    },
-    {
-      "title": "Health & Fitness",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740298074HeCPtLmIyk.png"
-    },
-    {
-      "title": "Science & Environment",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740298149S8dSEeemN9.png"
-    },
-    {
-      "title": "Education & Career",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740298197P3GLapzlB0.png"
-    },
-    {
-      "title": "Crime & Security",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740298423rz0dhSgx2p.png"
-    },
-    {
-      "title": "Opinion & Editorials",
-      "image":
-          "https://redcross.kampu.solutions/assets/images/categories/1740298471CKzhKsWak2.png"
-    }
+    // {
+    //   "title": "Sports",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740297855CzrvQ4WL7m.png"
+    // },
+    // {
+    //   "title": "Entertainment & Lifestyle",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740297846mtf4p5qh5f.png"
+    // },
+    // {
+    //   "title": "Health & Fitness",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740298074HeCPtLmIyk.png"
+    // },
+    // {
+    //   "title": "Science & Environment",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740298149S8dSEeemN9.png"
+    // },
+    // {
+    //   "title": "Education & Career",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740298197P3GLapzlB0.png"
+    // },
+    // {
+    //   "title": "Crime & Security",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740298423rz0dhSgx2p.png"
+    // },
+    // {
+    //   "title": "Opinion & Editorials",
+    //   "image":
+    //       "https://redcross.kampu.solutions/assets/images/categories/1740298471CKzhKsWak2.png"
+    // }
   ];
   final List<Map<String, dynamic>> socialLinks = [
     {
       "title": "Facebook",
       "image":
-          "https://redcross.kampu.solutions/assets/images/links/facebook.png"
+          "https://redcross.kampu.solutions/assets/images/social_media/facebook.jpeg"
     },
     {
       "title": "Telegram",
       "image":
-          "https://redcross.kampu.solutions/assets/images/links/telegram.png"
+          "https://redcross.kampu.solutions/assets/images/social_media/telegram.jpeg"
     },
     {
-      "title": "YouTube",
+      "title": "Tiktok",
       "image":
-          "https://redcross.kampu.solutions/assets/images/links/youtube.png"
+          "https://redcross.kampu.solutions/assets/images/social_media/tiktok.jpeg"
     },
     {
-      "title": "TikTok",
+      "title": "E-Learning",
       "image":
-          "https://redcross.kampu.solutions/assets/images/links/1740301121BPKqsYO30R.png"
+          "https://redcross.kampu.solutions/assets/images/social_media/elearning.jpeg"
     },
   ];
 
@@ -184,16 +184,44 @@ class MyDrawer extends StatelessWidget {
                         .toList(),
                     Container(
                       padding: EdgeInsets.only(bottom: 4),
-                      // decoration: BoxDecoration(
-                      //   border: Border(
-                      //     top: BorderSide(
-                      //       color: Theme.of(context)
-                      //           .colorScheme
-                      //           .primary, // Set your desired color here
-                      //       width: 0.5, // Set the border width
-                      //     ),
-                      //   ),
-                      // ),
+                      child: ListTile(
+                        leading: SizedBox(
+                          width: 45,
+                          child: Image.network(
+                              'https://redcross.kampu.solutions/assets/images/social_media/youtube.jpeg',
+                              width: 45,
+                              height: 45),
+                        ),
+                        title: Align(
+                          alignment: Alignment
+                              .centerLeft, // Ensures text stays aligned with the leading
+                          child: Text('Channel CRC'),
+                        ),
+                        onTap: () {
+                        },
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 4),
+                      child: ListTile(
+                        leading: SizedBox(
+                          width: 45,
+                          child: Image.network(
+                              'https://redcross.kampu.solutions/assets/images/social_media/x.jpeg',
+                              width: 45,
+                              height: 45),
+                        ),
+                        title: Align(
+                          alignment: Alignment
+                              .centerLeft, // Ensures text stays aligned with the leading
+                          child: Text('X(Twitter)'),
+                        ),
+                        onTap: () {
+                        },
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 4),
                       child: ListTile(
                         leading: SizedBox(
                           width: 45,
@@ -239,8 +267,6 @@ class MyDrawer extends StatelessWidget {
                     NeverScrollableScrollPhysics(), // Disable scrolling inside GridView
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4, // 4 columns
-                  crossAxisSpacing: 8, // Horizontal spacing between items
-                  mainAxisSpacing: 8, // Vertical spacing between items
                 ),
                 itemCount: socialLinks.length, // Number of items in the grid
                 itemBuilder: (context, index) {
@@ -252,9 +278,9 @@ class MyDrawer extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(social["image"], width: 45, height: 45),
+                        Image.network(social["image"], width: 44, height: 44),
                         SizedBox(height: 4),
-                        Text(social["title"], style: TextStyle(fontSize: 12)),
+                        Text(social["title"], style: TextStyle(fontSize: 10)),
                       ],
                     ),
                   );

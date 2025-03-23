@@ -172,7 +172,10 @@ class _MainPageState extends State<MainPage> {
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ), // Set static font size
-        unselectedLabelStyle: const TextStyle(fontSize: 16),
+        unselectedLabelStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey.shade200,

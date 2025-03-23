@@ -35,6 +35,8 @@ class MyListHeader extends StatelessWidget {
                   Text(
                     'See More',
                     style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
